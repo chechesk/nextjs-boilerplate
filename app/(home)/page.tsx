@@ -1,6 +1,5 @@
 import Footer from "@/Components/Footer/footer";
 import PokemonList from "@/Components/List/List";
-import Image from "next/image";
 
 export default function Home() {
   return (

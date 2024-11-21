@@ -33,7 +33,7 @@ export interface Pokemon {
   
   export const statColors: { [key: string]: string } = {
     hp: "bg-red-500",
-    attack: "bg-orange-500",
+    attack: "bg-orange-300",
     defense: "bg-yellow-500",
     "special-attack": "bg-blue-500",
     "special-defense": "bg-teal-500",

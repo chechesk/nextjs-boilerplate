@@ -27,7 +27,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   />
   <h2 className="text-lg font-bold capitalize text-center">{pokemon.name}</h2>
   <p className="text-sm capitalize text-center shadow-2xl">
-    Tipo: {pokemon.types?.map((t) => t.type.name).join(", ")}
+    Type: {pokemon.types?.map((t) => t.type.name).join(", ")}
   </p>
 </div>
   );

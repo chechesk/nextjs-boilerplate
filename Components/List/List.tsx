@@ -13,6 +13,7 @@ const PokemonList: React.FC = () => {
   const [searchName, setSearchName] = useState('');
   const [searchType, setSearchType] = useState('');
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,30 +80,68 @@ const PokemonList: React.FC = () => {
 
   return (
     <div>
-      <h1 className="flex justify-center text-center text-4xl m-4">Lista de Pokémon</h1>
+<header
+  className={`fixed top-0 left-0 h-full bg-gray-800 text-white p-4 
+    w-32 md:w-32 lg:w-32 
+    transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
+    md:translate-x-0 transition-transform duration-300 ease-in-out`}
+>
+  <h2 className="text-xl font-bold mb-4">Filter</h2>
+  <button
+  className="absolute top-4 left-4 md:hidden z-50 bg-blue-500 text-white p-2 rounded-lg"
+  onClick={() => setSidebarOpen(!sidebarOpen)}
+>
+  {sidebarOpen ? "Cerrar" : "Abrir"}
+</button>
+  <div className="flex flex-col gap-2">
+    <button
+      onClick={() => handleTypeChange({ target: { value: "" } } as React.ChangeEvent<HTMLSelectElement>)}
+      className={`w-full text-left px-4 py-2 rounded-lg ${
+        searchType === "" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"
+      }`}
+    >
+      All
+    </button>
+    {uniqueTypes &&
+      uniqueTypes
+        ?.filter((type): type is string => !!type)
+        .map((type: string, key) => (
+          <button
+            key={key}
+            onClick={() => handleTypeChange({ target: { value: type } } as React.ChangeEvent<HTMLSelectElement>)}
+            className={`w-full text-left px-4 py-2 rounded-lg ${
+              searchType === type ? "bg-blue-500 text-white" : "bg-gray-200 text-black"
+            }`}
+          >
+            {type.charAt(0).toUpperCase() + type.slice(1)}
+          </button>
+        ))}
+  </div>
+</header>
+      <h1 className="flex justify-center text-center text-4xl m-4">List Pokémon</h1>
 
       <div className='flex justify-center items-center p-3 rounded-3xl my-3 bg-gray-400 w-full max-w-lg mx-auto'>
 
 
         <form>
           <label>
-            Buscar:
+            Search:
             <input
               className='text-black text-center mx-2 rounded-md'
               type="text"
               value={searchName}
               onChange={handleNameChange}
-              placeholder="Buscar por nombre"
+              placeholder="Search for name"
             />
           </label>
           <label className='text-white mx-2'>
-            Tipo:
+            Type:
             <select
               value={searchType}
               onChange={handleTypeChange}
               className="text-black mx-2"
             >
-              <option className='rounded-xl' value="">Todos</option>
+              <option className='rounded-xl' value="">All</option>
               {uniqueTypes && uniqueTypes
                 ?.filter((type): type is string => !!type)
                 .map((type: string, key) => (
@@ -112,6 +151,7 @@ const PokemonList: React.FC = () => {
                 ))}
             </select>
           </label>
+          
         </form>
       </div>
       <div className="flex flex-wrap justify-center gap-8">

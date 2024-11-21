@@ -23,16 +23,14 @@ const PokemonModal: React.FC<{ pokemon: Pokemon; onClose: () => void }> = ({ pok
                 />
                 <h2 className="text-2xl font-bold capitalize mb-4 text-center">{pokemon.name}</h2>
                 <p className="text-sm capitalize text-center shadow-2xl">
-                Tipo: {pokemon.types?.map((t) => t.type.name).join(", ")} </p>
+                Type: {pokemon.types?.map((t) => t.type.name).join(", ")} </p>
                 <div className="mb-4">
-                    <h3 className="text-xl font-semibold ">Habilidades:</h3>
-                    <ul>
-                        {pokemon.abilities?.map((value, key) => (
-                            <li key={key} className="text-lg">{value.ability.name}</li>
-                        ))}
-                    </ul>
+                    <h3 className="text-xl font-semibold ">Abilities:   {pokemon.abilities?.map((t) => t.ability.name).join(", ")}</h3>
+                    
+                      
+                    
                     <div className="mb-4">
-                    <h3 className="text-xl font-semibold">Estadísticas:</h3>
+                    <h3 className="text-xl font-semibold">Stat:</h3>
                     <ul>
                         {pokemon.stats?.map((stat, key) => (
                             <li key={key} className="mb-2">

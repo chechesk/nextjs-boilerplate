@@ -1,6 +1,5 @@
 import Footer from "@/Components/Footer/footer";
 import Loading from "@/Components/Loading/Loading";
-import Image from "next/image";
 
 export default function Home() {
   return (

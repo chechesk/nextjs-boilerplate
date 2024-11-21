@@ -9,7 +9,7 @@ export default function Home() {
         <Image
         src='/logo.webp'
         alt="Logo Pokemon"
-        width={226}
+        width={326}
         height={226} />
       </header>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">

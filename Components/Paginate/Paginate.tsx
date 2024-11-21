@@ -9,7 +9,7 @@ const Paginate: React.FC<PaginateProps> =({
     }) => {
 
   return (
-    <div className="pagination-controls flex justify-between items-center mt-4">
+    <div className="pagination-controls flex justify-center items-center mt-4">
     <button
       onClick={handlePreviousPage}
       disabled={currentPage === 1}
@@ -17,7 +17,7 @@ const Paginate: React.FC<PaginateProps> =({
     >
       Anterior
     </button>
-    <span className="text-gray-700">
+    <span className="text-white mx-4">
       Página {currentPage} de {totalPages}
     </span>
     <button

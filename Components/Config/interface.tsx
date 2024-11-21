@@ -27,6 +27,10 @@ export interface Pokemon {
     pokemon: Pokemon;
   }
 
+  export interface SearchProps {
+    pokemons: Pokemon[]; // Define el tipo de la propiedad 'pokemons' como un arreglo de 'Pokemon'
+  }
+
   const typeBackgrounds: Record<string, string> = {
     normal: "bg-gray-300",
     fighting: "bg-red-600",

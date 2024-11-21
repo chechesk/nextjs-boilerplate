@@ -8,7 +8,7 @@ import { InstanceApi } from './api';
 const fetchPokemons = async (): Promise<Pokemon[]> => {
   try {
     const response: AxiosResponse<PokemonApiResponse> = await InstanceApi.get(
-      "pokemon?limit=600"
+      "pokemon?limit=100"
     );
     const pokemonList = response.data.results;
 

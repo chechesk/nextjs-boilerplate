@@ -3,19 +3,28 @@ export interface Pokemon {
     url: string;
     sprites?: {
         front_default: string;
+        other?: {
+            dream_world?:{
+                front_default :string;
+        }
       };
+    }
     types?: {
         type: {
           name: string;
         };
       }[];
+    abilities?: {
+        ability: {
+          name: string;
+        };
+      }[];
   }
-  
+
   export interface PokemonApiResponse {
     results: Pokemon[];
   }
   
-
   export interface PaginateProps {
     currentPage: number;
     totalPages: number;

@@ -10,9 +10,10 @@ const Loading: React.FC = () => {
         <Image
           src={mortres}
           alt="Loading"
-          width={128}
-          height={128}
-          className="rounded-full"
+          width={200} 
+          height={100} 
+          priority
+          className="rounded-full w-auto h-auto"
         />
       </div>
     </div>

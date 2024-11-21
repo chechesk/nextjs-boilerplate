@@ -8,20 +8,20 @@ import PokemonModal from '../Modal/ModalPokemon';
 
 const PokemonList: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [currentPage, setCurrentPage] = useState(1); 
-  const itemsPerPage = 20; 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
   const [searchName, setSearchName] = useState('');
   const [searchType, setSearchType] = useState('');
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const data = await fetchPokemons(); 
-      setPokemons(data); 
-    } catch (error) {
-      console.error("Error fetching pokemons:", error);
-    }
+        const data = await fetchPokemons();
+        setPokemons(data);
+      } catch (error) {
+        console.error("Error fetching pokemons:", error);
+      }
     };
 
     fetchData();
@@ -43,7 +43,6 @@ const PokemonList: React.FC = () => {
     });
   }, [pokemons, searchName, searchType]);
 
-  // Cálculo para paginación basado en los Pokémon filtrados
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentPokemons = filteredPokemons.slice(startIndex, endIndex);
@@ -81,44 +80,44 @@ const PokemonList: React.FC = () => {
   return (
     <div>
       <h1 className="flex justify-center text-center text-4xl m-4">Lista de Pokémon</h1>
-      
+
       <div className='flex justify-center items-center p-3 rounded-3xl my-3 bg-gray-400 w-full max-w-lg mx-auto'>
-        
-    
-      <form>
-        <label>
-        Buscar:
-          <input
-            className='text-black text-center mx-2 rounded-md'
-            type="text"
-            value={searchName}
-            onChange={handleNameChange}
-            placeholder="Buscar por nombre"
-          />
-        </label>
-        <label className='text-white mx-2'>
-          Tipo: 
-          <select
-            value={searchType}
-            onChange={handleTypeChange}
-            className="text-black mx-2"
-          >
-            <option className='rounded-xl' value="">Todos</option>
-            {uniqueTypes && uniqueTypes
-            ?.filter((type): type is string => !!type)
-            .map((type:string, key) => (
-              <option key={key} value={type}>
-                {type.charAt(0).toUpperCase() + type.slice(1)} {/* Capitaliza el tipo */}
-              </option>
-            ))}
-          </select>
-        </label>
-      </form>
+
+
+        <form>
+          <label>
+            Buscar:
+            <input
+              className='text-black text-center mx-2 rounded-md'
+              type="text"
+              value={searchName}
+              onChange={handleNameChange}
+              placeholder="Buscar por nombre"
+            />
+          </label>
+          <label className='text-white mx-2'>
+            Tipo:
+            <select
+              value={searchType}
+              onChange={handleTypeChange}
+              className="text-black mx-2"
+            >
+              <option className='rounded-xl' value="">Todos</option>
+              {uniqueTypes && uniqueTypes
+                ?.filter((type): type is string => !!type)
+                .map((type: string, key) => (
+                  <option key={key} value={type}>
+                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                  </option>
+                ))}
+            </select>
+          </label>
+        </form>
       </div>
       <div className="flex flex-wrap justify-center gap-8">
         {currentPokemons.map((pokemon, key) => (
-          <div key={key} onClick={() => handlePokemonClick(pokemon)}> 
-          <PokemonCard pokemon={pokemon}  />
+          <div key={key} onClick={() => handlePokemonClick(pokemon)}>
+            <PokemonCard pokemon={pokemon} />
           </div>
         ))}
       </div>

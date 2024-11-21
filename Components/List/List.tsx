@@ -4,11 +4,12 @@ import Image from 'next/image';
 import { Pokemon } from '../Config/interface';
 import fetchPokemons from '../Config/requeriment';
 import Paginate from '../Paginate/Paginate';
+import PokemonCard from '../Card/cardPokemon';
 
 const PokemonList: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [currentPage, setCurrentPage] = useState(1); // Página actual
-  const itemsPerPage = 20; // Elementos por página
+  const itemsPerPage = 21; // Elementos por página
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,22 +41,11 @@ const PokemonList: React.FC = () => {
   return (
     <div>
       <h1>Lista de Pokémon</h1>
-      <ul>
+      <div className="grid grid-cols-3 gap-3">
         {currentPokemons.map((pokemon, key) => (
-          <li key={key}>
-            <Image
-  src={pokemon.sprites?.front_default || '/placeholder.png'}
-  alt={pokemon.name}
-  width={96}
-  height={96}
-  priority
-  placeholder="blur"
-  blurDataURL="/placeholder.png" // URL de una imagen desenfocada
-/>
-            <p>{pokemon.name || 'No name available'}</p>
-          </li>
+          <PokemonCard key={key} pokemon={pokemon} />
         ))}
-      </ul>
+      </div>
       <Paginate
         currentPage={currentPage}
         totalPages={totalPages}

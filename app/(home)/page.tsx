@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     console.log("Cargando:", isLoading);
-    const timer = setTimeout(() => setIsLoading(false), 3000);
+    const timer = setTimeout(() => setIsLoading(false), 1000);
     return () => clearTimeout(timer);
   }, [isLoading]);
 

@@ -26,7 +26,7 @@ const PokemonModal: React.FC<{ pokemon: Pokemon; onClose: () => void }> = ({ pok
                 <div className="mb-4">
                     <h3 className="text-xl font-semibold ">Habilidades:</h3>
                     <ul>
-                        {pokemon.abilities?.map((value:any, key:any) => (
+                        {pokemon.abilities?.map((value, key) => (
                             <li key={key} className="text-lg">{value.ability.name}</li>
                         ))}
                     </ul>

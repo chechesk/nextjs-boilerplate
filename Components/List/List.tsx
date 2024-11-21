@@ -104,7 +104,9 @@ const PokemonList: React.FC = () => {
             className="text-black mx-2"
           >
             <option className='rounded-xl' value="">Todos</option>
-            {uniqueTypes && uniqueTypes.map((type:any, key) => (
+            {uniqueTypes && uniqueTypes
+            ?.filter((type): type is string => !!type)
+            .map((type:string, key) => (
               <option key={key} value={type}>
                 {type.charAt(0).toUpperCase() + type.slice(1)} {/* Capitaliza el tipo */}
               </option>

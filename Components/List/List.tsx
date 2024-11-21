@@ -13,7 +13,7 @@ const PokemonList: React.FC = () => {
   const [searchName, setSearchName] = useState('');
   const [searchType, setSearchType] = useState('');
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+  // const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,16 +83,16 @@ const PokemonList: React.FC = () => {
 <header
   className={`fixed top-0 left-0 h-full bg-gray-800 text-white p-4 
     w-32 md:w-32 lg:w-32 
-    transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
+    transform  "translate-x-0" : "-translate-x-full"} 
     md:translate-x-0 transition-transform duration-300 ease-in-out`}
 >
   <h2 className="text-xl font-bold mb-4">Filter</h2>
-  <button
+  {/* <button
   className="absolute top-4 left-4 md:hidden z-50 bg-blue-500 text-white p-2 rounded-lg"
   onClick={() => setSidebarOpen(!sidebarOpen)}
 >
   {sidebarOpen ? "Cerrar" : "Abrir"}
-</button>
+</button> */}
   <div className="flex flex-col gap-2">
     <button
       onClick={() => handleTypeChange({ target: { value: "" } } as React.ChangeEvent<HTMLSelectElement>)}

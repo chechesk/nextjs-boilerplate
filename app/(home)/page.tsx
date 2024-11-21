@@ -23,7 +23,9 @@ export default function Home() {
         src='/logo.webp'
         alt="Logo Pokemon"
         width={326}
-        height={226} />
+        height={226}
+        priority
+        />
       </header>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
        <PokemonList />

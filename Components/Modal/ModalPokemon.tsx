@@ -1,5 +1,5 @@
 import Image from "next/image";
-import typeBackgrounds, { Pokemon } from "../Config/interface";
+import typeBackgrounds, { Pokemon, statColors } from "../Config/interface";
 import './Modal.css'
 
 const PokemonModal: React.FC<{ pokemon: Pokemon; onClose: () => void }> = ({ pokemon, onClose }) => {
@@ -16,9 +16,10 @@ const PokemonModal: React.FC<{ pokemon: Pokemon; onClose: () => void }> = ({ pok
                 <Image
                     src={dreamWorldImage || "/placeholder.png"}
                     alt={pokemon.name}
-                    width={226}
-                    height={226}
+                    width={126}
+                    height={126}
                     className="mb-2 items-center"
+                    priority
                 />
                 <h2 className="text-2xl font-bold capitalize mb-4 text-center">{pokemon.name}</h2>
                 <p className="text-sm capitalize text-center shadow-2xl">
@@ -30,6 +31,23 @@ const PokemonModal: React.FC<{ pokemon: Pokemon; onClose: () => void }> = ({ pok
                             <li key={key} className="text-lg">{value.ability.name}</li>
                         ))}
                     </ul>
+                    <div className="mb-4">
+                    <h3 className="text-xl font-semibold">Estadísticas:</h3>
+                    <ul>
+                        {pokemon.stats?.map((stat, key) => (
+                            <li key={key} className="mb-2">
+                                <span className="text-lg capitalize">{stat.stat.name}: </span>
+                                <div className="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+                                    <div
+                                        className={`h-4 ${statColors[stat.stat.name] || "bg-gray-500"}`}
+                                        style={{ width: `${Math.min((stat.base_stat / 100) * 100, 100)}%` }}
+                                    ></div>
+                                </div>
+                                <span className="text-sm">{stat.base_stat}/100</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,12 @@
 export interface Pokemon {
     name: string;
     url: string;
+    stats?: {
+      base_stat: number;
+      stat:{
+        name: string;
+      }
+    }[]
     sprites?: {
         front_default: string;
         other?: {
@@ -25,6 +31,15 @@ export interface Pokemon {
     results: Pokemon[];
   }
   
+  export const statColors: { [key: string]: string } = {
+    hp: "bg-red-500",
+    attack: "bg-orange-500",
+    defense: "bg-yellow-500",
+    "special-attack": "bg-blue-500",
+    "special-defense": "bg-teal-500",
+    speed: "bg-purple-500",
+  };
+
   export interface PaginateProps {
     currentPage: number;
     totalPages: number;
@@ -44,7 +59,7 @@ export interface Pokemon {
     normal: "bg-gray-300",
     fighting: "bg-red-600",
     flying: "bg-blue-300",
-    poison: "bg-purple-500",
+    poison: "bg-purple-200",
     ground: "bg-yellow-700",
     rock: "bg-gray-700",
     bug: "bg-green-500",
@@ -57,7 +72,7 @@ export interface Pokemon {
     psychic: "bg-pink-500",
     ice: "bg-blue-200",
     dragon: "bg-purple-700",
-    dark: "bg-gray-900",
+    dark: "bg-gray-500",
     fairy: "bg-pink-300",
     stellar: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
     unknown: "bg-gray-200",

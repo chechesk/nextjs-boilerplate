@@ -23,6 +23,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
     width={226}
     height={226}
     className="mb-2"
+    priority
   />
   <h2 className="text-lg font-bold capitalize text-center">{pokemon.name}</h2>
   <p className="text-sm capitalize text-center shadow-2xl">

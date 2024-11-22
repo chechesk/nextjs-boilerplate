@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { Pokemon, statColors } from "../Config/interface";
 import './Modal.css'
-import typeBackgrounds from "../Config/CardStyles";
+// import typeBackgrounds from "../Config/CardStyles";
 
 const PokemonModal: React.FC<{ pokemon: Pokemon; onClose: () => void }> = ({ pokemon, onClose }) => {
     const dreamWorldImage = pokemon.sprites?.other?.dream_world?.front_default;
-    const primaryType = pokemon.types?.[0]?.type.name || "unknown";
-    const backgroundClass = typeBackgrounds[primaryType] || "bg-gray-200";
+    // const primaryType = pokemon.types?.[0]?.type.name || "unknown";
+    const backgroundClass =/*  typeBackgrounds[primaryType] ||  */"bg-gray-200";
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className={`${backgroundClass}  p-8 rounded-lg max-w-lg w-full text-black`}>

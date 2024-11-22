@@ -16,7 +16,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
 
   return (
     <div
-      className={`w-[200px] h-[280px] sm:w-[250px] sm:h-[300px] md:w-[300px] md:h-[350px] flex flex-col items-center justify-center rounded-lg shadow-lg text-white p-4 ${backgroundClass} transition-all duration-500 transform hover:scale-105`}
+      className={`w-[200px] h-[280px] sm:w-[250px] sm:h-[300px] md:w-[300px] md:h-[350px] flex flex-col items-center justify-center rounded-lg shadow-lg text-white p-4 transition-all duration-500 transform hover:scale-105`}
     >
       <Image
         src={pokemon.sprites?.front_default || "/placeholder.png"}

@@ -16,21 +16,21 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
 
   return (
     <div
-      className={`w-[200px] h-[280px] sm:w-[250px] sm:h-[300px] md:w-[300px] md:h-[350px] flex flex-col items-center justify-center rounded-lg shadow-lg text-white p-4 transition-all duration-500 transform hover:scale-105`}
-    >
-      <Image
-        src={pokemon.sprites?.front_default || "/placeholder.png"}
-        alt={pokemon.name}
-        width={226}
-        height={226}
-        className="mb-2"
-        priority
-      />
-      <h2 className="text-lg font-bold capitalize text-center">{pokemon.name}</h2>
-      <p className="text-sm capitalize text-center shadow-2xl">
-        Type: {pokemon.types?.map((t) => t.type.name).join(", ")}
-      </p>
-    </div>
+  className={`w-[200px] h-[280px] sm:w-[250px] sm:h-[300px] md:w-[300px] md:h-[350px] flex flex-col items-center justify-center rounded-lg shadow-lg text-white p-4 ${backgroundClass} transition-all duration-500 transform hover:scale-105`}
+>
+  <Image
+    src={pokemon.sprites?.front_default || "/placeholder.png"}
+    alt={pokemon.name}
+    width={226}
+    height={226}
+    className="mb-2"
+    priority
+  />
+  <h2 className="text-lg font-bold capitalize text-center">{pokemon.name}</h2>
+  <p className="text-sm capitalize text-center shadow-2xl">
+    Type: {pokemon.types?.map((t) => t.type.name).join(", ")}
+  </p>
+</div>
   );
 };
 

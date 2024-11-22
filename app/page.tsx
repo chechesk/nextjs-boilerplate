@@ -5,6 +5,8 @@ import Logo from '@/public/logo.webp'
 import Image from "next/image";
 // import Loading from "@/Components/Loading/Loading";
 // import { useEffect, useState } from "react";
+import "./globals.css";
+import "../build.css";
 
 export default function Home() {
   // const [isLoading, setIsLoading] = useState(true);

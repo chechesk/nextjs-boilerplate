@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "buildcss": "npx tailwindcss -o build.css --minify"
   },
   "dependencies": {
     "axios": "^1.7.7",

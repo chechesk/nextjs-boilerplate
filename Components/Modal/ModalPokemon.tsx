@@ -1,6 +1,7 @@
 import Image from "next/image";
-import typeBackgrounds, { Pokemon, statColors } from "../Config/interface";
+import { Pokemon, statColors } from "../Config/interface";
 import './Modal.css'
+import typeBackgrounds from "../Config/CardStyles";
 
 const PokemonModal: React.FC<{ pokemon: Pokemon; onClose: () => void }> = ({ pokemon, onClose }) => {
     const dreamWorldImage = pokemon.sprites?.other?.dream_world?.front_default;
